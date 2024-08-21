@@ -3,7 +3,7 @@ Theme Name: Sbtechbd-Technologies
 Theme URI: http://underscores.me/
 Author: Subrata Debnath
 Author URI: https://subrata6630.github.io/
-Description: Sbtechbd Technologies wordpress blog Theme
+Description: Sbtechbd Technologies wordpress blog Theme.you can customize your blog as you like. Sbtechbd Technologies theme comes with responsive layout. 
 Version: 1.0.0
 Tested up to: 5.4
 Requires PHP: 5.6
@@ -79,6 +79,8 @@ html {
  */
 body {
 	margin: 0;
+
+
 }
 
 /**
@@ -403,7 +405,7 @@ select,
 optgroup,
 textarea {
 	color: #404040;
-	font-family:  sans-serif;
+	font-family:  Arial, sans-serif, SolaimanLipi;
 	font-size: 1rem;
 	line-height: 1.5;
 }
@@ -480,6 +482,17 @@ big {
 	font-size: 18px;
 }
 
+.wp-block-group{
+	box-sizing: border-box;
+    background: #E9ECEF;
+    margin: 20px 0px;
+    padding: 30px;
+}
+
+.main-bg {
+    background-color:  #E9ECEF;;
+}
+
 @media (min-width: 600px) {
 	.site-title{
 		font-size: 24px;
@@ -498,6 +511,7 @@ big {
 --------------------------------------------- */
 body {
 	background: #fff;
+
 }
 
 hr {
@@ -559,6 +573,7 @@ table {
 --------------------------------------------- */
 a {
 	color: #4169e1;
+	text-decoration: none;
 }
 
 a:visited {
@@ -764,6 +779,13 @@ textarea {
 .post-navigation .nav-next {
 	text-align: end;
 	flex: 1 0 50%;
+}
+
+.site-header{
+		border-bottom-width: 1px;
+		border-bottom-color: var(--wp--preset--color--black-opacity-15);
+		border-bottom-style: solid;
+	
 }
 
 /* Posts and pages

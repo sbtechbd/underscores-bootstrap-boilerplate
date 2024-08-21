@@ -18,7 +18,7 @@ get_header();
 
 <main id="primary" class="site-main col-12 col-lg-8">
 
-    <?php
+	<?php
 	while (have_posts()) :
 		the_post();
 

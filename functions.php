@@ -146,19 +146,31 @@ function sbtechbd_technologies_scripts()
 	wp_enqueue_style('sbtechbd-technologies-style', get_stylesheet_uri(), array(), _S_VERSION);
 
 	//bootstrap style
+	wp_enqueue_script('jquery');
 	wp_enqueue_style('bootstrap-style', get_template_directory_uri() . '/bootstrap/css/bootstrap.min.css');
 
 	wp_style_add_data('sbtechbd-technologies-style', 'rtl', 'replace');
 	wp_enqueue_script('sbtechbd-technologies-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
 
 	//bootstrap script
-	wp_enqueue_script('bootstrap-script', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js');
+	wp_enqueue_script('bootstrap-script', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array('jquery'), null, true);
+
+	//font-awesome script
+	wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
 }
 add_action('wp_enqueue_scripts', 'sbtechbd_technologies_scripts');
+
+
+/**
+ * Theme Updates auto update
+ */
+
+
+
 
 /**
  * Implement the Custom Header feature.
@@ -183,7 +195,9 @@ require get_template_directory() . '/inc/customizer.php';
 /**
  * bootstrap Register custom navigation walker.
  */
-require_once('class-wp-bootstrap-navwalker.php');
+require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';
+
+
 
 /**
  * Load Jetpack compatibility file.

@@ -32,24 +32,24 @@
                 <div class="container">
                     <div class="site-branding">
                         <?php
-						the_custom_logo();
-						if (is_front_page() && is_home()) :
-						?>
+                        the_custom_logo();
+                        if (is_front_page() && is_home()) :
+                        ?>
                         <h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>"
                                 rel="home"><?php bloginfo('name'); ?></a></h1>
                         <?php
-						else :
-						?>
+                        else :
+                        ?>
                         <p class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>"
                                 rel="home"><?php bloginfo('name'); ?></a></p>
                         <?php
-						endif;
-						$sbtechbd_technologies_description = get_bloginfo('description', 'display');
-						if ($sbtechbd_technologies_description || is_customize_preview()) :
-						?>
+                        endif;
+                        $wordpress_blog_website_description = get_bloginfo('description', 'display');
+                        if ($wordpress_blog_website_description || is_customize_preview()) :
+                        ?>
                         <p class="site-description">
-                            <?php echo $sbtechbd_technologies_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
-								?>
+                            <?php echo $wordpress_blog_website_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+                                ?>
                         </p>
                         <?php endif; ?>
                     </div><!-- .site-branding -->
@@ -61,18 +61,20 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <?php
-						wp_nav_menu(
-							array(
-								'menu' => 'top_menu',
-								'depth' => 2,
-								'container' => false,
-								'menu_class' => 'navbar-nav me-auto mb-2 mb-lg-0 m-auto',
-								// Process nav menu using our custom nav walker
-								'walker' => new wp_bootstrap_navwalker()
-							)
-						);
-						get_search_form();
-						?>
+                        wp_nav_menu(
+                            array(
+                                'menu' => 'top_menu',
+                                'depth' => 2,
+                                'container'         => 'div',
+                                'container_class'   => 'collapse navbar-collapse',
+                                'container_id'      => 'navbarSupportedContent',
+                                'menu_class' => 'navbar-nav me-auto mb-2 mb-lg-0 m-auto',
+                                // Process nav menu using our custom nav walker
+                                'walker' => new wp_bootstrap_navwalker()
+                            )
+                        );
+                        get_search_form();
+                        ?>
                     </div>
             </nav><!-- #site-navigation -->
             <!-- end container -->

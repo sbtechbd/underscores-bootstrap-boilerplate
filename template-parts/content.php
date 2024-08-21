@@ -10,7 +10,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?> " <?php post_class(); ?>>
     <header class="entry-header pb-3">
         <?php
 		if (is_singular()) :
@@ -22,33 +22,41 @@
 		if ('post' === get_post_type()) :
 		?>
         <div class="entry-meta">
-            <?php
-				sbtechbd_technologies_posted_on();
-				sbtechbd_technologies_posted_by();
-				?>
+            <i class="fas fa-user"></i> <?php sbtechbd_technologies_posted_by(); ?>
+            <i class="fas fa-calendar-alt"></i> <?php sbtechbd_technologies_posted_on(); ?>
         </div><!-- .entry-meta -->
         <?php endif; ?>
     </header><!-- .entry-header -->
 
     <?php sbtechbd_technologies_post_thumbnail(); ?>
 
-    <div class="entry-content">
+    <div class="entry-content pb-3">
         <?php
+		// Display the post content with a "Continue reading" link if the content is paginated
 		the_content(
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
-					__('Continue reading<span class="screen-reader-text"> "%s"</span>', 'sbtechbd-technologies'),
+					__('<a class="continue-reading-link" href="%1$s"><i class="fas fa-arrow-right"></i> Continue Reading<span class="screen-reader-text"> "%2$s"</span></a>', 'sbtechbd-technologies'),
 					array(
+						'a' => array(
+							'class' => array(),
+							'href'  => array(),
+						),
+						'i' => array(
+							'class' => array(),
+						),
 						'span' => array(
 							'class' => array(),
 						),
 					)
 				),
+				esc_url(get_permalink()),
 				wp_kses_post(get_the_title())
 			)
 		);
 
+		// Display pagination links for multi-page content
 		wp_link_pages(
 			array(
 				'before' => '<div class="page-links">' . esc_html__('Pages:', 'sbtechbd-technologies'),
@@ -57,6 +65,9 @@
 		);
 		?>
     </div><!-- .entry-content -->
+
+
+
 
     <footer class="entry-footer">
         <?php sbtechbd_technologies_entry_footer(); ?>
